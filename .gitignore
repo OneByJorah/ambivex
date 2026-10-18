@@ -1,6 +1,9 @@
 node_modules/
 config.json
 graph.json
+.env
+.env.*
+!.env.example
 .DS_Store
 Claude-Sessions/
 
