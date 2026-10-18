@@ -17,7 +17,19 @@ const RECORD = process.env.RECORD === "1";
 
 // Edit this list per project: one entry per screen worth showing.
 const PAGES = [
-  { name: "dashboard", path: "/", waitFor: "#app-ready" },
+  {
+    name: "wallpaper",
+    path: "/?synthetic=1200&oneshot=1",
+    waitFor: "canvas",
+    readyFn: async (page) => {
+      // Wait until the renderer has actually drawn nodes (it exposes __drawnNodes).
+      await page.waitForFunction(
+        () => typeof __drawnNodes === "number" && __drawnNodes > 0,
+        { timeout: 15000 },
+      );
+    },
+  },
+  { name: "settings", path: "/settings.html", waitFor: ".presets" },
 ];
 
 const FORBIDDEN = [
@@ -54,6 +66,7 @@ for (const p of PAGES) {
   const page = await context.newPage();
   await page.goto(new URL(p.path, BASE).toString(), { waitUntil: "networkidle" });
   if (p.waitFor) await page.waitForSelector(p.waitFor, { timeout: 15000 });
+  if (p.readyFn) await p.readyFn(page);
 
   const text = (await page.evaluate(() => document.body.innerText)) + "\n" + (await page.title());
   const hits = FORBIDDEN.filter((f) => f.re.test(text)).map((f) => f.label);
@@ -65,7 +78,7 @@ for (const p of PAGES) {
   }
 
   const file = path.join(OUT, `${p.name}.png`);
-  await page.screenshot({ path: file, fullPage: true });
+  await page.screenshot({ path: file, fullPage: p.fullPage || false });
   console.log(`saved ${file}`);
   await page.close();
 }

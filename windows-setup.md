@@ -8,8 +8,8 @@
 ## Install
 
 ```powershell
-git clone https://github.com/OneByJorah/AmbientOS.git
-cd AmbientOS
+git clone https://github.com/OneByJorah/ambivex.git
+cd ambivex
 npm install
 copy config.example.json config.json
 ```
@@ -53,7 +53,7 @@ Keep this terminal open (or run it as a background service — see below).
 3. **Action**: Start a program.
    - **Program**: `node` (or the full path, e.g. `C:\Program Files\nodejs\node.exe`)
    - **Arguments**: `parser.js`
-   - **Start in**: `C:\\Users\\You\\path\\to\\AmbientOS`
+   - **Start in**: `C:\\Users\\You\\path\\to\\ambivex`
 4. Check "Open the Properties dialog" → under General, check **Run whether user is logged on or not** if you want it truly background.
 
 ### Option B: pm2

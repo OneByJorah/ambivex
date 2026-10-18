@@ -1,10 +1,16 @@
 version: "3.8"
 
 services:
-  ambientos:
+  ambivex:
+    image: ghcr.io/onebyjorah/ambivex:latest
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: ambivex
     ports:
-      - "127.0.0.1:9503:80"
+      - "127.0.0.1:${HOST_PORT:-9503}:8080"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
     restart: unless-stopped
