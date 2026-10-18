@@ -66,6 +66,10 @@ jobs:
             if [ -f "$COMPOSE_DIR/.env.example" ]; then cp "$COMPOSE_DIR/.env.example" "$COMPOSE_DIR/.env";
             else : > "$COMPOSE_DIR/.env"; fi
           fi
+          # Publish the container on the host port that base-url points at
+          # (compose defaults to HOST_PORT=9503, the workflow defaults to 8080).
+          HOST_PORT="$(printf '%s' "$BASE_URL" | awk -F: '{print $NF}')"
+          export HOST_PORT
           docker compose -f "$COMPOSE_FILE_PATH" up -d --build
 
       - name: Wait for health

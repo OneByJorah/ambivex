@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   ambivex:
     image: ghcr.io/onebyjorah/ambivex:latest
