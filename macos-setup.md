@@ -22,9 +22,9 @@ Find your node path first: run `which node` in Terminal and paste the result bel
   <key>ProgramArguments</key>
   <array>
     <string>PASTE_OUTPUT_OF_WHICH_NODE</string>
-    <string>/Users/YOU/path/to/AmbientOS/parser.js</string>
+    <string>/Users/YOU/path/to/ambivex/parser.js</string>
   </array>
-  <key>WorkingDirectory</key><string>/Users/YOU/path/to/AmbientOS</string>
+  <key>WorkingDirectory</key><string>/Users/YOU/path/to/ambivex</string>
   <key>RunAtLoad</key><true/>
   <key>KeepAlive</key><true/>
 </dict></plist>

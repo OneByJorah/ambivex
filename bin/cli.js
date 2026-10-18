@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // CLI entry so the wallpaper can be launched without cloning:
 //
-//   npx ambient-os --vault ~/Notes [--port 3000]
+//   npx ambivex --vault ~/Notes [--port 3000]
 //
 // It scaffolds (or updates) a small config file in the current directory and
 // hands off to the same startApp() used by `npm start`. Static assets are still
@@ -25,15 +25,15 @@ function flag(...names) {
 function has(...names) { return names.some(n => args.includes(n)); }
 
 if (has('-h', '--help')) {
-  process.stdout.write(`ambient-os — your Obsidian vault graph as a live desktop wallpaper
+  process.stdout.write(`ambivex — your Obsidian vault graph as a live desktop wallpaper
 
 Usage:
-  npx ambient-os --vault <path> [--port <n>] [--config <file>]
+  npx ambivex --vault <path> [--port <n>] [--config <file>]
 
 Options:
   -v, --vault <path>    Absolute path to your Obsidian vault (required first run)
   -p, --port <n>        HTTP port for the wallpaper server (default 3000)
-  -c, --config <file>   Config file to read/write (default ./ambient-os.config.json)
+  -c, --config <file>   Config file to read/write (default ./ambivex.config.json)
   -h, --help            Show this help
 
 After it starts, point your wallpaper host (Plash / Lively / etc.) at the
@@ -45,7 +45,7 @@ printed http://127.0.0.1:<port> URL, and open /settings.html to customize.
 const vault = flag('-v', '--vault');
 const port = flag('-p', '--port');
 const configArg = flag('-c', '--config');
-const configPath = path.resolve(process.cwd(), configArg || 'ambient-os.config.json');
+const configPath = path.resolve(process.cwd(), configArg || 'ambivex.config.json');
 
 let cfg = {};
 if (fs.existsSync(configPath)) {

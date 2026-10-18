@@ -422,7 +422,7 @@ function runParserFuzz() {
 }
 
 async function main() {
-  const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'ambient-os-smoke-'));
+  const tmpRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'ambivex-smoke-'));
   try {
     runRendererCore();
     runParserFuzz();

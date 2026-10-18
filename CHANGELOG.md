@@ -34,7 +34,7 @@ First stable release.
   instead of cutting hard. Small slider tweaks still apply instantly.
 - **Live config reload.** Editing `config.json` by hand now applies visual
   changes immediately (vaultPath/port still need a restart, and you're told so).
-- **`npx` / CLI runner.** `npx ambient-os --vault <path> [--port N]`
+- **`npx` / CLI runner.** `npx ambivex --vault <path> [--port N]`
   scaffolds a config in the working directory and starts the server, so the
   wallpaper can run without cloning the repo. Also available as `olw`.
 - **Unit tests for shared pure helpers** (`renderer-core.js`, used by both the

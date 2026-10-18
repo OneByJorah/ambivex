@@ -10,8 +10,8 @@ Linux has no single wallpaper engine, but the parser and renderer work identical
 ## Install
 
 ```bash
-git clone https://github.com/OneByJorah/AmbientOS.git
-cd AmbientOS
+git clone https://github.com/OneByJorah/ambivex.git
+cd ambivex
 npm install
 cp config.example.json config.json
 ```
@@ -84,12 +84,12 @@ Save this as `~/.config/systemd/user/vault-wallpaper.service`:
 
 ```ini
 [Unit]
-Description=AmbientOS parser
+Description=ambivex parser
 After=graphical-session.target
 
 [Service]
 Type=simple
-WorkingDirectory=/home/you/path/to/AmbientOS
+WorkingDirectory=/home/you/path/to/ambivex
 ExecStart=/usr/bin/node parser.js
 Restart=on-failure
 RestartSec=5

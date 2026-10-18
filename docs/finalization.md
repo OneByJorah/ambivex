@@ -1,6 +1,6 @@
 # Finalization
 
-A take-stock pass on what's left to call AmbientOS "done." The
+A take-stock pass on what's left to call ambivex "done." The
 heavy engineering already exists — the six-phase large-vault performance work
 (`perf-roadmap.md`), the worker-based simulation, viewport culling, the glow
 sprite atlas, and an 18-preset theme system designed against five orthogonal
@@ -59,7 +59,7 @@ just polish:
   node on each scene-tuning refresh; the order is cached and invalidated only on
   graph reload.
 - **Deeper idle throttle** — after 30s calm the loop steps from 30fps to ~15fps.
-- **`npx` / CLI runner** — `npx ambient-os --vault <path> [--port N]`
+- **`npx` / CLI runner** — `npx ambivex --vault <path> [--port N]`
   (and `olw`) scaffold a config in the working directory and start the server
   without cloning; static assets are still served from the installed package.
 
@@ -100,7 +100,7 @@ items noted under "Remaining" below.
   blank-frame class; a perceptual pixel diff would catch subtler color/layout
   drift. Deferred — it needs an image-diff dependency and a pinned headless
   environment to avoid font-rendering flake across machines.
-- **Homebrew cask / bespoke installer.** `npx ambient-os` is already
+- **Homebrew cask / bespoke installer.** `npx ambivex` is already
   the one-line install; a cask adds reach but also a separate tap to maintain.
 
 ## How to regenerate preset thumbnails
