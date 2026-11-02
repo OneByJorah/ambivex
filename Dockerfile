@@ -1,5 +1,8 @@
 FROM nginx:1.31.7-alpine
 
+# Apply Alpine's security fixes on top of the base image
+RUN apk upgrade --no-cache
+
 # Serve on an unprivileged port so the container does not need root.
 # (nginx cannot bind :80 as a non-root user — the usual cause of "permission
 # denied" when hardening a stock nginx image.)
